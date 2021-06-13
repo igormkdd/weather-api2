@@ -28,10 +28,10 @@ public class SensorDataService {
         sensorDataRepository.insert(sensorData);
     }
 
-    public void updateRecord(SensorData sensorData) {
-        SensorData savedSensorData = sensorDataRepository.findById(sensorData.getId())
+    public void updateRecord(SensorData sensorData, String id) {
+        SensorData savedSensorData = sensorDataRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException(
-                        String.format("Cannot find sensor data for ID %s", sensorData.getId())
+                        String.format("Cannot find sensor data for ID %s", id)
                 ));
 
         savedSensorData.setTemperature(sensorData.getTemperature());

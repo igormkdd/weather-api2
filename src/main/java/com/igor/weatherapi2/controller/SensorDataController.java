@@ -35,9 +35,9 @@ public class SensorDataController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping
-    public ResponseEntity updateRecord(@RequestBody SensorData sensorData) {
-        sensorDataService.updateRecord(sensorData);
+    @PatchMapping("/{id}")
+    public ResponseEntity updateRecord(@RequestBody SensorData sensorData, @PathVariable String id) {
+        sensorDataService.updateRecord(sensorData, id);
         return ResponseEntity.ok().build();
 
     }
